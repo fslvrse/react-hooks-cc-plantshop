@@ -13,7 +13,7 @@ function PlantPage() {
       .then((data) => setPlants(data));
   }, []);
 
-  const addPlant = (newPlant) => {
+  const handleAddPlant = (newPlant) => {
     fetch("http://localhost:6001/plants", {
       method: "POST",
       headers: {
@@ -31,7 +31,7 @@ function PlantPage() {
 
   return (
     <main>
-      <NewPlantForm onAddPlant={addPlant} />
+      <NewPlantForm onAddPlant={handleAddPlant} />
       <Search searchTerm={searchTerm} onSearchChange={setSearchTerm} />
       <PlantList plants={filteredPlants} />
     </main>
